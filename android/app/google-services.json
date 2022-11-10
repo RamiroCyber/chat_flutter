@@ -41,6 +41,35 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:707145766739:android:bb6ae4f89c14ef0c54f3a6",
+        "android_client_info": {
+          "package_name": "com.example.chatonlineflutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "707145766739-ni8gtrsv755fpptkii7grf2dus7fkihg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqeMdC2XWZvKnHNn7jQ0HKLYxwzYXlaIQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "707145766739-ni8gtrsv755fpptkii7grf2dus7fkihg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"
