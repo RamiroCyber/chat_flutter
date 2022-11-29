@@ -10,10 +10,10 @@ void main() async {
   );
 
   runApp(const MyApp());
-  FirebaseFirestore.instance
-      .collection("col")
-      .doc("doc")
-      .set(({"texto": "ramiro"}));
+ QuerySnapshot snapshot = await FirebaseFirestore.instance.collection("menssagens").get();
+ snapshot.docs.forEach((element) {
+   print(element.data());
+ });
 }
 
 class MyApp extends StatelessWidget {
