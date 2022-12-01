@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:chatonlineflutter/Screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'firebase_options.dart';
@@ -8,12 +8,8 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
   runApp(const MyApp());
- QuerySnapshot snapshot = await FirebaseFirestore.instance.collection("menssagens").get();
- snapshot.docs.forEach((element) {
-   print(element.data());
- });
+
 }
 
 class MyApp extends StatelessWidget {
@@ -22,11 +18,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Chat Flutter',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
+        iconTheme: IconThemeData(color: Colors.blueAccent)
       ),
-      home: Container(),
+      home: Screen(),
     );
   }
 }
