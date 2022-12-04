@@ -37,14 +37,24 @@ class _InputTextState extends State<InputText> {
                 },
                 onSubmitted: (text) {
                   widget.sendMessage(text);
+                  _textController.clear();
+                  setState(() {
+                    textEmpty = !textEmpty;
+                  });
                 },
               ),
             ),
             IconButton(
               icon: const Icon(Icons.send_outlined),
-              onPressed: textEmpty ? () {
-                widget.sendMessage(_textController.text);
-              } : null,
+              onPressed: textEmpty
+                  ? () {
+                      widget.sendMessage(_textController.text);
+                      _textController.clear();
+                      setState(() {
+                        textEmpty = !textEmpty;
+                      });
+                    }
+                  : null,
             )
           ]),
     );
