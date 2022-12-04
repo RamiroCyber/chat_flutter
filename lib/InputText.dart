@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 
 class InputText extends StatefulWidget {
+  InputText(this.sendMessage);
+
+  Function(String) sendMessage;
+
   @override
   State<InputText> createState() => _InputTextState();
-
 }
 
 class _InputTextState extends State<InputText> {
-
   bool textEmpty = false;
+  final TextEditingController _textController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +27,7 @@ class _InputTextState extends State<InputText> {
             ),
             Expanded(
               child: TextField(
+                controller: _textController,
                 decoration: const InputDecoration.collapsed(
                     hintText: 'Enviar menssagem'),
                 onChanged: (text) {
@@ -31,13 +35,16 @@ class _InputTextState extends State<InputText> {
                     textEmpty = text.isNotEmpty;
                   });
                 },
-                onSubmitted: (text) {},
+                onSubmitted: (text) {
+                  widget.sendMessage(text);
+                },
               ),
             ),
             IconButton(
               icon: const Icon(Icons.send_outlined),
-              onPressed: textEmpty? () => {}
-                  : null,
+              onPressed: textEmpty ? () {
+                widget.sendMessage(_textController.text);
+              } : null,
             )
           ]),
     );

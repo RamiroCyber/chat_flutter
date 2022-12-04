@@ -14,7 +14,9 @@ class _ScreenState extends State<Screen> {
         title: const Text('Chat flutter'),
         centerTitle: true,
       ),
-      body: InputText(),
+      body: InputText((text) {
+        print(text);
+      }),
     );
   }
 }
